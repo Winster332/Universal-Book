@@ -1,0 +1,8 @@
+C:\Users\Winster332\git\Winster332\Games\LM\LM.Backend\bin\Debug\netcoreapp2.0\LM.Backend.deps.json
+C:\Users\Winster332\git\Winster332\Games\LM\LM.Backend\bin\Debug\netcoreapp2.0\LM.Backend.dll
+C:\Users\Winster332\git\Winster332\Games\LM\LM.Backend\bin\Debug\netcoreapp2.0\LM.Backend.pdb
+C:\Users\Winster332\git\Winster332\Games\LM\LM.Backend\obj\Debug\netcoreapp2.0\LM.Backend.csproj.CoreCompileInputs.cache
+C:\Users\Winster332\git\Winster332\Games\LM\LM.Backend\obj\Debug\netcoreapp2.0\LM.Backend.AssemblyInfoInputs.cache
+C:\Users\Winster332\git\Winster332\Games\LM\LM.Backend\obj\Debug\netcoreapp2.0\LM.Backend.AssemblyInfo.cs
+C:\Users\Winster332\git\Winster332\Games\LM\LM.Backend\obj\Debug\netcoreapp2.0\LM.Backend.dll
+C:\Users\Winster332\git\Winster332\Games\LM\LM.Backend\obj\Debug\netcoreapp2.0\LM.Backend.pdb

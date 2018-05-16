@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" Version="2.7.0-beta0001" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="PeterKottas.DotNetCore.WindowsService" Version="2.0.6" />
+    <PackageReference Include="Serilog" Version="2.7.1-dev-00993" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="3.1.2-dev-00774" />
+    <PackageReference Include="Serilog.Sinks.Literate" Version="3.0.1-dev-00044" />
+  </ItemGroup>
+</Project>

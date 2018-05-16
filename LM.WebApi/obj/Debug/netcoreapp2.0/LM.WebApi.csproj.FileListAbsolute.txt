@@ -1,0 +1,12 @@
+C:\Users\Winster332\git\Winster332\Games\LM\LM.WebApi\bin\Debug\netcoreapp2.0\LM.WebApi.deps.json
+C:\Users\Winster332\git\Winster332\Games\LM\LM.WebApi\bin\Debug\netcoreapp2.0\LM.WebApi.runtimeconfig.json
+C:\Users\Winster332\git\Winster332\Games\LM\LM.WebApi\bin\Debug\netcoreapp2.0\LM.WebApi.runtimeconfig.dev.json
+C:\Users\Winster332\git\Winster332\Games\LM\LM.WebApi\bin\Debug\netcoreapp2.0\LM.WebApi.dll
+C:\Users\Winster332\git\Winster332\Games\LM\LM.WebApi\bin\Debug\netcoreapp2.0\LM.WebApi.pdb
+C:\Users\Winster332\git\Winster332\Games\LM\LM.WebApi\bin\Debug\netcoreapp2.0\LM.Backend.dll
+C:\Users\Winster332\git\Winster332\Games\LM\LM.WebApi\bin\Debug\netcoreapp2.0\LM.Backend.pdb
+C:\Users\Winster332\git\Winster332\Games\LM\LM.WebApi\obj\Debug\netcoreapp2.0\LM.WebApi.csproj.CoreCompileInputs.cache
+C:\Users\Winster332\git\Winster332\Games\LM\LM.WebApi\obj\Debug\netcoreapp2.0\LM.WebApi.AssemblyInfoInputs.cache
+C:\Users\Winster332\git\Winster332\Games\LM\LM.WebApi\obj\Debug\netcoreapp2.0\LM.WebApi.AssemblyInfo.cs
+C:\Users\Winster332\git\Winster332\Games\LM\LM.WebApi\obj\Debug\netcoreapp2.0\LM.WebApi.dll
+C:\Users\Winster332\git\Winster332\Games\LM\LM.WebApi\obj\Debug\netcoreapp2.0\LM.WebApi.pdb
