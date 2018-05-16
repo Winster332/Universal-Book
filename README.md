@@ -1,6 +1,6 @@
 # Universal-Book
 
-![N|Solid](https://pp.userapi.com/c840329/v840329621/8b3fc/1vO5Dsh6urA.jpg)
+![N|Solid](https://pp.userapi.com/c844617/v844617313/52caa/wvtOAM9F4u4.jpg)
 
 
 Universal-Book - flexible web application for creating directories and books
@@ -23,12 +23,16 @@ To start the service, you must use the LM.Frontnet project as a startup.
 On the side of the MongoDB, a database is created `LMTests`. 
 
 ## Gallery
-View page with themes:
-![N|Solid](https://pp.userapi.com/c840329/v840329621/8b405/uLKFiNcKstg.jpg)
-View all parts:
-![N|Solid](https://pp.userapi.com/c840329/v840329621/8b41f/QcZf9NMJhCY.jpg)
-Add new theme:
-![N|Solid](https://pp.userapi.com/c840329/v840329621/8b416/rF3_bW2yhqw.jpg)
+
+![N|Solid](https://pp.userapi.com/c844617/v844617313/52cb3/0TLfVDd2uMQ.jpg)
+
+![N|Solid](https://pp.userapi.com/c844617/v844617313/52cbc/zqYMrs_m2No.jpg)
+
+![N|Solid](https://pp.userapi.com/c844617/v844617313/52cdb/mQ0Gx-XYQmE.jpg)
+
+![N|Solid](https://pp.userapi.com/c844617/v844617313/52ce4/bHRm8Qoefvg.jpg)
+
+![N|Solid](https://pp.userapi.com/c844617/v844617313/52ced/MfqhFIJqomQ.jpg)
 
 ## License
 
