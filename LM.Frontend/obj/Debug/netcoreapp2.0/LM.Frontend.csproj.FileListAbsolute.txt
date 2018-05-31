@@ -10,3 +10,15 @@ C:\Users\Winster332\git\Winster332\Games\LM\LM.Frontend\obj\Debug\netcoreapp2.0\
 C:\Users\Winster332\git\Winster332\Games\LM\LM.Frontend\obj\Debug\netcoreapp2.0\LM.Frontend.pdb
 C:\Users\Winster332\git\Winster332\Games\LM\LM.Frontend\bin\Debug\netcoreapp2.0\LM.Backend.dll
 C:\Users\Winster332\git\Winster332\Games\LM\LM.Frontend\bin\Debug\netcoreapp2.0\LM.Backend.pdb
+C:\Users\Winster332\git\Winster332\Universal-Book\LM.Frontend\bin\Debug\netcoreapp2.0\LM.Frontend.deps.json
+C:\Users\Winster332\git\Winster332\Universal-Book\LM.Frontend\bin\Debug\netcoreapp2.0\LM.Frontend.runtimeconfig.json
+C:\Users\Winster332\git\Winster332\Universal-Book\LM.Frontend\bin\Debug\netcoreapp2.0\LM.Frontend.runtimeconfig.dev.json
+C:\Users\Winster332\git\Winster332\Universal-Book\LM.Frontend\bin\Debug\netcoreapp2.0\LM.Frontend.dll
+C:\Users\Winster332\git\Winster332\Universal-Book\LM.Frontend\bin\Debug\netcoreapp2.0\LM.Frontend.pdb
+C:\Users\Winster332\git\Winster332\Universal-Book\LM.Frontend\bin\Debug\netcoreapp2.0\LM.Backend.dll
+C:\Users\Winster332\git\Winster332\Universal-Book\LM.Frontend\bin\Debug\netcoreapp2.0\LM.Backend.pdb
+C:\Users\Winster332\git\Winster332\Universal-Book\LM.Frontend\obj\Debug\netcoreapp2.0\LM.Frontend.csproj.CoreCompileInputs.cache
+C:\Users\Winster332\git\Winster332\Universal-Book\LM.Frontend\obj\Debug\netcoreapp2.0\LM.Frontend.AssemblyInfoInputs.cache
+C:\Users\Winster332\git\Winster332\Universal-Book\LM.Frontend\obj\Debug\netcoreapp2.0\LM.Frontend.AssemblyInfo.cs
+C:\Users\Winster332\git\Winster332\Universal-Book\LM.Frontend\obj\Debug\netcoreapp2.0\LM.Frontend.dll
+C:\Users\Winster332\git\Winster332\Universal-Book\LM.Frontend\obj\Debug\netcoreapp2.0\LM.Frontend.pdb

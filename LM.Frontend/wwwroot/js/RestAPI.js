@@ -32,8 +32,8 @@ class Api {
     createDate(type, jsonDbObject, callback) {
         this.post(type + "/create", jsonDbObject, callback);
     }
-    removeDate(type, id) {
-        this.get(type + "/remove/" + id, function () {});
+    removeDate(type, id, func) {
+        this.get(type + "/remove/" + id, func);
     }
     addPart(id, part, callback) {
         this.post(CollectionType.Books + "/" + id + "/addPart", part, callback);

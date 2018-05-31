@@ -7,9 +7,12 @@ function refreshParts() {
         for (var i = 0; i < json.length; i++) {
             var element = document.createElement("a");
             element.className = "mdl-navigation__link";
-            element.innerHTML = json[i].Name;
+           // element.innerHTML = json[i].Name;
             element.theme = json[i]._id;
             element.themeParentId = json[i].ParentId;
+            element.innerHTML = "<div style='display: grid;'><p style='grid-column: 1; float: left; vertical-align: center'>" + json[i].Name + "</p><button id=\"" + json[i]._id + "\" onclick='deletePart(this)' class=\"mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab\" style='grid-column: 2; float: right'>\n" +
+                "                <i class=\"material-icons\">delete</i>\n" +
+                "            </button></div>";
 
             var option = document.createElement("option");
             option.innerHTML = json[i].Name;
@@ -34,7 +37,7 @@ function refreshParts() {
 
                                     element.onclick = function (x) {
                                         var themeId = x.path[0].theme;
-
+                                        
                                         $("#menu").hide();
                                         api.getDate(CollectionType.Themes, themeId, function (actualListTheme) {
                                             var actualTheme = actualListTheme[0];
@@ -50,7 +53,7 @@ function refreshParts() {
                                                 "РЕДАКТИРОВАТЬ" +
                                                 "</button>" +
                                                 "<h1 id='theme-content-title'>" + actualTheme.Name + "</h1>" +
-                                                "<h5>" + actualTheme.Description + "</h5>";
+                                                actualTheme.Description;
                                             $("#theme-content").show();
                                         });
                                     };
@@ -72,6 +75,18 @@ function refreshParts() {
         var parts = document.getElementById("selectParts");
         parts.appendChild(select);
     });
+}
+
+function deletePart(btn) {
+    var partId = btn.id;
+    api.removeDate("parts", partId, function () {
+    });
+    
+    setTimeout(
+        function()
+        {
+            refreshParts();
+        }, 1000);
 }
 
 function run() {

@@ -22,7 +22,7 @@
     <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
             <!-- Title -->
-            <span class="mdl-layout-title">Mathematics</span>
+            <span class="mdl-layout-title">MATH</span>
             <!-- Add spacer, to align navigation to the right -->
             <div class="mdl-layout-spacer"></div>
             <!-- Navigation. We hide it in small screens. -->
@@ -30,12 +30,15 @@
                 <button id="confirm" data-question="mail: stas-martynov-98@mail.com<br>Мартынов C.В." class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect tirgger">
                     КОНТАКТЫ
                 </button>
+                <button id="btnTests" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect tirgger" style="margin-left: 10px">
+                    ТЕСТЫ
+                </button>
             </nav>
         </div>
     </header>
     <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">Параграфы
-            <button id="addPartBtn" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" style="position: absolute; right: 10px; top: 10px">
+            <button id="addPartBtn" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" style="position: absolute; right: 10px; top: 10px;">
                 <i class="material-icons">add</i>
             </button>
         </span>
@@ -83,6 +86,51 @@
             <textarea class="mdl-textfield__input" type="text" rows= "3" id="sample5" ></textarea>
             <label class="mdl-textfield__label" for="sample5">Описание...</label>
         </div>
+        <div>
+            <h4>Тесты</h4>
+            <button id="addTestBtn" onclick="addNewTest()" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab" style="margin: -90px 0 0 80px">
+                <i class="material-icons">add</i>
+            </button>
+            <div id="tests">
+            </div>
+            <script>
+                function deleteTest(btn) {
+                    console.log(btn);
+                }
+                function addNewTest() {
+                    console.log("423");
+                    
+                    var div = document.createElement("div");
+                    var htmlTest = 
+                        "<div class=\"demo-card-square mdl-card mdl-shadow--2dp\" style=\"margin-bottom: 5px\">" +
+                            "<div class=\"mdl-card__title mdl-card--expand\">" +
+                            "<div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">" +
+                            "    <input class=\"mdl-textfield__input\" type=\"text\" id=\"sample3\">" +
+                            "    <label class=\"mdl-textfield__label\" for=\"sample3\">Заголовок...</label>" +
+                            "</div>" +
+                            "</div>" +
+                            "<div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">" +
+                            "    <input class=\"mdl-textfield__input\" type=\"text\" id=\"sample3\">" +
+                            "    <label class=\"mdl-textfield__label\" for=\"sample3\">Вопрос...</label>" +
+                            "</div>" +
+                            "<div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">" +
+                            "    <input class=\"mdl-textfield__input\" type=\"text\" id=\"sample3\">" +
+                            "    <label class=\"mdl-textfield__label\" for=\"sample3\">Ответ...</label>" +
+                            "</div>" +
+                            "<div class=\"mdl-card__actions mdl-card--border\">" +
+                            "    <a class=\"mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect\">" +
+                            "        Сохранить" +
+                            "    </a>" +
+                            "    <a onclick=\"deleteTest(this)\" class=\"mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect\">" +
+                            "        Удалить" +
+                            "    </a>" +
+                            "</div>" +
+                            "</div>";
+                    div.innerHTML = htmlTest;
+                    document.getElementById("tests").appendChild(div);
+                }
+            </script>
+        </div>
         <br>
         <p>Выберите тему:</p>
         <div id="selectParts" class="styled-select" tabindex="1">
@@ -116,23 +164,24 @@
                 element.onclick = function (x) {
                     var themeId = x.path[0].theme;
 
-                            $("#menu").hide();
-                                        api.getDate(CollectionType.Themes, themeId, function (actualListTheme) {
-                                            var actualTheme = actualListTheme[0];
-                                            document.getElementById("theme-content").innerHTML =
-                                                "<button onclick='enableMenu()' class=\"mdl-button mdl-js-button mdl-button--primary\">\n" +
-                                                "НАЗАД" +
-                                                "</button>" +
-                                                "<button id='" + actualTheme._id + "' onclick='deleteTheme(this)' class=\"mdl-button mdl-js-button mdl-button--primary\">\n" +
-                                                "УДАЛИТЬ" +
-                                                "</button>" +
-                                                "<button id='" + actualTheme._id + "' onclick='editTheme(this)' class=\"mdl-button mdl-js-button mdl-button--primary\">\n" +
-                                                "РЕДАКТИРОВАТЬ" +
-                                                "</button>" +
-                                                "<h1 id='theme-content-title'>" + actualTheme.Name + "</h1>" +
-                                                "<h5>" + actualTheme.Description + "</h5>";
-                            $("#theme-content").show();
-                        });
+                    $("#menu").hide();
+                    api.getDate(CollectionType.Themes, themeId, function (actualListTheme) {
+                        var actualTheme = actualListTheme[0];
+                        document.getElementById("theme-content").innerHTML =
+                            "<button onclick='enableMenu()' class=\"mdl-button mdl-js-button mdl-button--primary\">\n" +
+                            "НАЗАД" +
+                            "</button>" +
+                            "<button id='" + actualTheme._id + "' onclick='deleteTheme(this)' class=\"mdl-button mdl-js-button mdl-button--primary\">\n" +
+                            "УДАЛИТЬ" +
+                            "</button>" +
+                            "<button id='" + actualTheme._id + "' onclick='editTheme(this)' class=\"mdl-button mdl-js-button mdl-button--primary\">\n" +
+                            "РЕДАКТИРОВАТЬ" +
+                            "</button>" +
+                            "<h1 id='theme-content-title'>" + actualTheme.Name + "</h1>" +
+                            "<h5>" + actualTheme.Description + "</h5>";
+                        $("#theme-content").show();
+                        console.log("123");
+                    });
                 };
 
                 var parts = document.getElementById("themes");
@@ -141,14 +190,14 @@
             }
         });
     }
-function guid() {
-    function s4() {
-        return Math.floor((1 + Math.random()) * 0x10000)
-            .toString(16)
-            .substring(1);
+    function guid() {
+        function s4() {
+            return Math.floor((1 + Math.random()) * 0x10000)
+                .toString(16)
+                .substring(1);
+        }
+        return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
     }
-    return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
-}
     
     var modal = document.getElementById('myModal');
 
@@ -193,11 +242,11 @@ function guid() {
         
         $("#myModal").hide();
         
-            setTimeout(
-                function()
-                {
-                    refreshThemes();
-                }, 1000);
+        setTimeout(
+            function()
+            {
+                refreshThemes();
+            }, 1000);
     }
 
     btn.onclick = function() {
@@ -217,11 +266,11 @@ function guid() {
 </script>
 
 
-<script defer src="lib/jquery-3.3.1.min.js"></script>
-    <script defer src="js/RestAPI.js"></script>
-    <script defer src="js/uiParts.js"></script>
-<script defer src="js/uiThemes.js"></script>
-<script defer src="js/helper.js"></script>
+<script src="lib/jquery-3.3.1.min.js"></script>
+    <script src="js/RestAPI.js?v=1.0"></script>
+    <script src="js/uiParts.js?v=1.1"></script>
+<script src="js/uiThemes.js?v=1.0"></script>
+<script src="js/helper.js?v=1.0"></script>
 @*    <script defer src="js/unitTests.js"></script>*@
 @*    <script defer src="js/loading.js"></script>*@
 </body>
