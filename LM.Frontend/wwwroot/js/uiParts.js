@@ -116,6 +116,7 @@ function run() {
     };
 
     refreshParts();
+    
 }
 
 run();

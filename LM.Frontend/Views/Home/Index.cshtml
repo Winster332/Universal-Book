@@ -14,10 +14,10 @@
 </head>
 <body>
 
-
-
-
-
+<div id="loaderView">
+    <div class="mdl-spinner mdl-js-spinner is-active" style="position: absolute; left: 50%; top: 50%"></div>
+</div>
+<div id="contentView">
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
@@ -117,7 +117,8 @@
     <div class="mdl-snackbar__text"></div>
     <button class="mdl-snackbar__action" type="button"></button>
 </div>
-
+</div>
+<script src="lib/jquery-3.3.1.min.js"></script>
 <script>
     function refreshThemes() {
         api.getDate(CollectionType.Themes, null, function (json) {
@@ -232,10 +233,18 @@
             modal.style.display = "none";
         }
     }
+    
+        $("#contentView").hide();
+    
+        setTimeout(
+            function()
+            {
+                $("#contentView").show();
+                $("#loaderView").hide();
+            }, 1500);
 </script>
 
 
-<script src="lib/jquery-3.3.1.min.js"></script>
     <script src="js/RestAPI.js?v=1.0"></script>
     <script src="js/uiParts.js?v=1.1"></script>
 <script src="js/uiThemes.js?v=1.0"></script>
