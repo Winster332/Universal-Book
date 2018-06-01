@@ -93,43 +93,6 @@
             </button>
             <div id="tests">
             </div>
-            <script>
-                function deleteTest(btn) {
-                    console.log(btn);
-                }
-                function addNewTest() {
-                    console.log("423");
-                    
-                    var div = document.createElement("div");
-                    var htmlTest = 
-                        "<div class=\"demo-card-square mdl-card mdl-shadow--2dp\" style=\"margin-bottom: 5px\">" +
-                            "<div class=\"mdl-card__title mdl-card--expand\">" +
-                            "<div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">" +
-                            "    <input class=\"mdl-textfield__input\" type=\"text\" id=\"sample3\">" +
-                            "    <label class=\"mdl-textfield__label\" for=\"sample3\">Заголовок...</label>" +
-                            "</div>" +
-                            "</div>" +
-                            "<div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">" +
-                            "    <input class=\"mdl-textfield__input\" type=\"text\" id=\"sample3\">" +
-                            "    <label class=\"mdl-textfield__label\" for=\"sample3\">Вопрос...</label>" +
-                            "</div>" +
-                            "<div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">" +
-                            "    <input class=\"mdl-textfield__input\" type=\"text\" id=\"sample3\">" +
-                            "    <label class=\"mdl-textfield__label\" for=\"sample3\">Ответ...</label>" +
-                            "</div>" +
-                            "<div class=\"mdl-card__actions mdl-card--border\">" +
-                            "    <a class=\"mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect\">" +
-                            "        Сохранить" +
-                            "    </a>" +
-                            "    <a onclick=\"deleteTest(this)\" class=\"mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect\">" +
-                            "        Удалить" +
-                            "    </a>" +
-                            "</div>" +
-                            "</div>";
-                    div.innerHTML = htmlTest;
-                    document.getElementById("tests").appendChild(div);
-                }
-            </script>
         </div>
         <br>
         <p>Выберите тему:</p>
@@ -149,6 +112,12 @@
     <button type="button" id="confirm" data-question="mail: stas-martynov-98@mail.com<br>Мартынов C.В." class="button">Confirm</button>
 </p>
 <div id="output"></div>
+
+<div id="demo-snackbar-example" class="mdl-js-snackbar mdl-snackbar">
+    <div class="mdl-snackbar__text"></div>
+    <button class="mdl-snackbar__action" type="button"></button>
+</div>
+
 <script>
     function refreshThemes() {
         api.getDate(CollectionType.Themes, null, function (json) {
@@ -224,7 +193,7 @@
         for (var i = 0; i < parts.length; i++) {
             var part = parts[i];
 
-            if (theme == part.text)
+            if (theme == part.Name)
                 themeId = part.theme;
 
         }
@@ -271,6 +240,7 @@
     <script src="js/uiParts.js?v=1.1"></script>
 <script src="js/uiThemes.js?v=1.0"></script>
 <script src="js/helper.js?v=1.0"></script>
+<script src="js/uiTest.js?v=1.0"></script>
 @*    <script defer src="js/unitTests.js"></script>*@
 @*    <script defer src="js/loading.js"></script>*@
 </body>

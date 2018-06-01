@@ -7,7 +7,7 @@ function refreshParts() {
         for (var i = 0; i < json.length; i++) {
             var element = document.createElement("a");
             element.className = "mdl-navigation__link";
-           // element.innerHTML = json[i].Name;
+           element.Name = json[i].Name;
             element.theme = json[i]._id;
             element.themeParentId = json[i].ParentId;
             element.innerHTML = "<div style='display: grid;'><p style='grid-column: 1; float: left; vertical-align: center'>" + json[i].Name + "</p><button id=\"" + json[i]._id + "\" onclick='deletePart(this)' class=\"mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab\" style='grid-column: 2; float: right'>\n" +
@@ -18,7 +18,7 @@ function refreshParts() {
             option.innerHTML = json[i].Name;
 
             element.onclick = function (x) {
-                var themeId = x.path[0].theme;
+                var themeId = x.path[2].theme;
 
                 api.getDate(CollectionType.Themes, null, function (themes) {
                     $("#themes").empty();
