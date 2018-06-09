@@ -7,7 +7,6 @@
     "outputPath": "C:\\Users\\Winster332\\git\\Winster332\\Universal-Book\\LM.Backend\\obj\\",
     "projectStyle": "PackageReference",
     "fallbackFolders": [
-      "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback",
       "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
     ],
     "originalTargetFrameworks": [

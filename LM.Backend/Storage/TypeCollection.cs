@@ -2,6 +2,6 @@
 {
     public enum TypeCollection
     {
-        Books, Contents, DbObjects, Pages, Parts, Themes
+        Books, Contents, DbObjects, Pages, Parts, Themes, User
     }
 }
