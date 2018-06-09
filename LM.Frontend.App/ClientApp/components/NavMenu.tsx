@@ -18,6 +18,11 @@ export class NavMenu extends React.Component<{}, {}> {
                 <div className='navbar-collapse collapse'>
                     <ul className='nav navbar-nav'>
                         <li>
+                            <NavLink to={ '/auth' } exact activeClassName='active'>
+                                <span className='glyphicon glyphicon-home'></span> Авторизация / Регистрация
+                            </NavLink>
+                        </li>
+                        <li>
                             <NavLink to={ '/' } exact activeClassName='active'>
                                 <span className='glyphicon glyphicon-home'></span> Home
                             </NavLink>
@@ -28,8 +33,8 @@ export class NavMenu extends React.Component<{}, {}> {
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to={ '/fetchdata' } activeClassName='active'>
-                                <span className='glyphicon glyphicon-th-list'></span> Fetch data
+                            <NavLink to={ '/about' } activeClassName='active'>
+                                <span className='glyphicon glyphicon-th-list'></span> О приложении
                             </NavLink>
                         </li>
                     </ul>
