@@ -52,9 +52,9 @@ export class CreateNewPart extends React.Component<RouteComponentProps<{}>, Crea
 
     public createNew() {
         var part = new Part();
-        part.Themes = [];
-        part.Name = this.state.name;
-        part.Achievement = this.state.achievementsName;
+        part.themes = [];
+        part.name = this.state.name;
+        part.achievement = this.state.achievementsName;
         part.id = this.guid();
         
         var app = this;

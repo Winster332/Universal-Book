@@ -10,10 +10,12 @@ import { Users } from "./components/Users";
 import { Statistic } from "./components/Statistic";
 import { Page } from "./components/Page";
 import { CreateNewPart } from "./components/CreateNewPart";
+import {CreateNewTheme} from "./components/CreateNewTheme";
 
 export const routes = <Layout>
     <Route exact path='/' component={ Home } />
     <Route path='/newpart' component={ CreateNewPart } />
+    <Route path='/newtheme' component={ CreateNewTheme } />
     <Route path='/page' component={ Page } />
     <Route path='/auth' component={ Authorize } />
     <Route path='/about' component={ About } />

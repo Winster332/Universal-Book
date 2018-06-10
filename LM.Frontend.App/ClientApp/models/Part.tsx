@@ -1,9 +1,10 @@
 import {DbObject} from "./DbObject";
+import {Theme} from "./Theme";
 
 export class Part extends DbObject {
-    public Name: string;
-    public Themes: Array<string>;
-    public Achievement: string;
+    public name: string;
+    public themes: Array<Theme>;
+    public achievement: string;
 
     public constructor() {
         super();
