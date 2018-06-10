@@ -33,7 +33,8 @@ namespace LM.Frontend.App.Controllers
             return Ok();
         }
         
-        [HttpGet("remove/{id}")]
+        [ActionName("remove/{id}")]
+        [HttpGet]
         public async Task<IActionResult> Remove(Guid id)
         {
             await Repository.Instance.Remove(Type, id);

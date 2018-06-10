@@ -6,7 +6,8 @@ export class User extends DbObject {
     public name: string;
     public password: string;
     public role: Role;
-    
+    public achievements: Array<string>;
+
     public constructor() {
         super();
     }

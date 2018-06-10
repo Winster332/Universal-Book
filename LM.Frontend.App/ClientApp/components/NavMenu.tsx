@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import {User} from "../models/User";
 
 class Item {
     name: string;
@@ -17,17 +18,6 @@ interface NavMenuState {
     items: Array<Item>;
 }
 
-var ItemComponent = React.createClass({
-    render: function () {
-        const item = this.props.item;
-        return <li>
-            <NavLink to={item.toAction} activeClassName='active'>
-                <span className='glyphicon glyphicon-home'></span>{item.name}
-            </NavLink>
-        </li>
-    }
-});
-
 export class NavMenu extends React.Component<{}, NavMenuState> {
     constructor() {
         super();
@@ -42,7 +32,6 @@ export class NavMenu extends React.Component<{}, NavMenuState> {
         }
 
         var user = JSON.parse(getCookie("_user"));
-        console.log(user)
 
         if (user == null) {
             this.state = {
@@ -55,14 +44,16 @@ export class NavMenu extends React.Component<{}, NavMenuState> {
             this.state = {
                 items: [
                     new Item(" Профиль", true, "/profile"),
-                    new Item(" Книги", true, "/"),
                     new Item(" Статистика", true, "/statistic"),
+                    new Item(" Книга", true, "/"),
+                    new Item(" Пользователи", user.role == 1, "/users"),
                     new Item(" О приложении", true, "/about"),
                     new Item(" Выход", true, "/exit"),
                 ]
             };
         }
     }
+    
     public render() {
         return <div className='main-nav'>
                 <div className='navbar navbar-inverse'>

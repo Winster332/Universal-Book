@@ -13,17 +13,27 @@ export class ApiUser extends EndpointController {
             .then(function (response) {
                 callback(response);
             }) 
-        
-        // fetch(this.host + "createNew", {
-        //     method: 'POST',
-        //     headers: {
-        //         'Accept': 'application/json',
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(user)
-        // }).then(() => {
-        //     console.log("user created")
-        // });
+    }
+    
+    public update(callback: Function, user: User) {
+        axios.post(this.host + "update", user)
+            .then(function (response) {
+                callback(response);
+            })
+    }
+    
+    public get(callback: Function) {
+        axios.get(this.host)
+            .then(function (response) {
+                callback(response);
+            })
+    }
+    
+    public remove(callback: Function, userId: string) {
+        axios.get(this.host + "remove/" + userId)
+            .then(function (response) {
+                callback(response);
+            })
     }
     
     public login(callback: Function, user: User) {
