@@ -8,9 +8,11 @@ import { Profile } from "./components/Profile";
 import { Exit } from "./components/Exit";
 import { Users } from "./components/Users";
 import { Statistic } from "./components/Statistic";
+import { Page } from "./components/Page";
 
 export const routes = <Layout>
     <Route exact path='/' component={ Home } />
+    <Route path='/page' component={ Page } />
     <Route path='/auth' component={ Authorize } />
     <Route path='/about' component={ About } />
     <Route path='/profile' component={ Profile } />
