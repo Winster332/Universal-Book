@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import {User} from "../models/User";
 
 class Item {
     name: string;
@@ -45,6 +44,7 @@ export class NavMenu extends React.Component<{}, NavMenuState> {
                 items: [
                     new Item(" Профиль", true, "/profile"),
                     new Item(" Статистика", true, "/statistic"),
+                    new Item(" Тренажер", true, "/tester"),
                     new Item(" Книга", true, "/"),
                     new Item(" Пользователи", user.role == 1, "/users"),
                     new Item(" О приложении", true, "/about"),

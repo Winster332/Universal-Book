@@ -44,7 +44,6 @@ export class Page extends React.Component<RouteComponentProps<{}>, PageState> {
 
     public render() {
         return <div>
-            <h1>Добро пожаловать</h1>
             <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">
                     <li className="breadcrumb-item"><a href="/">Математика</a></li>
@@ -52,9 +51,19 @@ export class Page extends React.Component<RouteComponentProps<{}>, PageState> {
                     <li className="breadcrumb-item active" aria-current="page">{this.state.theme.name}</li>
                 </ol>
             </nav>
+            <h1>{this.state.theme.name}</h1>
             <p>
                 {this.state.theme.content}
             </p>
+            {/*<Iframe url="http://www.youtube.com/embed/xDMP3i36naA"*/}
+                    {/*width="450px"*/}
+                    {/*height="450px"*/}
+                    {/*id="myId"*/}
+                    {/*className="myClassname"*/}
+                    {/*display="initial"*/}
+                    {/*position="relative"*/}
+                    {/*allowFullScreen/>*/}
+
 
             <p>
                 <a className="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button"
