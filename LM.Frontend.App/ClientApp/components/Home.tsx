@@ -2,8 +2,17 @@ import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 
 export class Home extends React.Component<RouteComponentProps<{}>, {}> {
+    constructor() {
+        super();
+    }
     public render() {
         return <div>
+            <nav aria-label="breadcrumb">
+                <ol className="breadcrumb">
+                    <li className="breadcrumb-item"><a href="#">Home</a></li>
+                    <li className="breadcrumb-item active" aria-current="page">Library</li>
+                </ol>
+            </nav>
             <h1>Hello, world!</h1>
             <p>Welcome to your new single-page application, built with:</p>
             <ul>

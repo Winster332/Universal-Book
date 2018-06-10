@@ -1,7 +1,68 @@
 import * as React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
-export class NavMenu extends React.Component<{}, {}> {
+class Item {
+    name: string;
+    isShow: boolean;
+    toAction: string;
+    
+    constructor(name: string, isShow: boolean, toAction: string) {
+        this.name = name;
+        this.isShow = isShow;
+        this.toAction = toAction;
+    }
+}
+
+interface NavMenuState {
+    items: Array<Item>;
+}
+
+var ItemComponent = React.createClass({
+    render: function () {
+        const item = this.props.item;
+        return <li>
+            <NavLink to={item.toAction} activeClassName='active'>
+                <span className='glyphicon glyphicon-home'></span>{item.name}
+            </NavLink>
+        </li>
+    }
+});
+
+export class NavMenu extends React.Component<{}, NavMenuState> {
+    constructor() {
+        super();
+
+        function getCookie(name: any) : any {
+                var matches = document.cookie.match(new RegExp(
+                    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+                ));
+            if (matches != null) {
+                return matches ? decodeURIComponent(matches[1]) : "";
+            } else return null;
+        }
+
+        var user = JSON.parse(getCookie("_user"));
+        console.log(user)
+
+        if (user == null) {
+            this.state = {
+                items: [
+                    new Item(" Авторизация / Регистрация", true, "/auth"),
+                    new Item(" О приложении", true, "/about")
+                ]
+            };
+        } else {
+            this.state = {
+                items: [
+                    new Item(" Профиль", true, "/profile"),
+                    new Item(" Книги", true, "/"),
+                    new Item(" Статистика", true, "/statistic"),
+                    new Item(" О приложении", true, "/about"),
+                    new Item(" Выход", true, "/exit"),
+                ]
+            };
+        }
+    }
     public render() {
         return <div className='main-nav'>
                 <div className='navbar navbar-inverse'>
@@ -17,26 +78,13 @@ export class NavMenu extends React.Component<{}, {}> {
                 <div className='clearfix'></div>
                 <div className='navbar-collapse collapse'>
                     <ul className='nav navbar-nav'>
-                        <li>
-                            <NavLink to={ '/auth' } exact activeClassName='active'>
-                                <span className='glyphicon glyphicon-home'></span> Авторизация / Регистрация
+                        { this.state.items.map(item => 
+                        item.isShow ? <li>
+                            <NavLink to={ item.toAction } exact activeClassName='active'>
+                                <span className='glyphicon glyphicon-home'></span> {item.name}
                             </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to={ '/' } exact activeClassName='active'>
-                                <span className='glyphicon glyphicon-home'></span> Home
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to={ '/counter' } activeClassName='active'>
-                                <span className='glyphicon glyphicon-education'></span> Counter
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to={ '/about' } activeClassName='active'>
-                                <span className='glyphicon glyphicon-th-list'></span> О приложении
-                            </NavLink>
-                        </li>
+                        </li> : ""
+                        )}
                     </ul>
                 </div>
             </div>

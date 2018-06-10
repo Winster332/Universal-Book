@@ -34,6 +34,9 @@ namespace LM.Backend.Storage
                 .Project<dynamic>(Builders<BsonDocument>.Projection
                     .Include("_id")
                     .Include("Name")
+                    .Include("Password")
+                    .Include("Role")
+                    .Include("Role")
                     .Include("Themes")
                     .Include("Number")
                     .Include("ParentId")

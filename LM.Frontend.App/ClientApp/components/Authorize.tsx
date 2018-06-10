@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
-import {User} from "../models/User";
+import {Role, User} from "../models/User";
+import {Api} from "../server/Api";
 
 interface UserState {
     name: string,
@@ -24,8 +25,12 @@ var RegistrationPanel = React.createClass({
 });
 
 export class Authorize extends React.Component<RouteComponentProps<{}>, UserState> {
+    private api: Api;
+    
     constructor() {
         super();
+        
+        this.api = new Api();
 
         this.state = {
             name: "",
@@ -33,7 +38,7 @@ export class Authorize extends React.Component<RouteComponentProps<{}>, UserStat
             isShowRegistratin: false,
             activeAuth: "btn btn-secondary active",
             activeReg: "btn btn-secondary"
-        }
+        };
     }
     
     public render() {
@@ -62,7 +67,7 @@ export class Authorize extends React.Component<RouteComponentProps<{}>, UserStat
                     <p>Регистрация</p>
                 </label>
             </div>
-            { this.state.isShowRegistratin == true ? <AuthorizePanel/> : <RegistrationPanel/> }
+            { this.state.isShowRegistratin != true ? <AuthorizePanel/> : <RegistrationPanel/> }
             <div id="panel-authorization">
                 <label htmlFor="exampleInputPassword1">Логин</label>
                 <input onChange={e => this.inputChangeNameHandle(e)} className="form-control" type="text" id="username" placeholder="User name"></input>
@@ -106,18 +111,34 @@ export class Authorize extends React.Component<RouteComponentProps<{}>, UserStat
         var user = new User();
         user.name = this.state.name;
         user.password = this.state.password;
+        user.role = Role.Student;
         
         if (user.name.length < 5 || user.password.length < 5) {
             alert("Имя или пароль содержит меньше 5-ти знаков")
             return;
         }
+        var app = this;
         
         if (this.state.isShowRegistratin) {
             console.log("registration");
-            console.log(user);
+            this.api.users.create(function (r: any) {
+                console.log("created user: ");
+                console.log(user);
+            }, user);
         } else {
             console.log("authorize");
-            console.log(user);
+            this.api.users.login(function (r: any) {
+                if (r.statusText == "No Content") {
+                    alert("Не удалось авторизоваться, проверьте пароль или логин")
+                } else {
+                    user = r.data;
+                    document.cookie = "_user=" + JSON.stringify(user) + ";";
+                    app.props.history.push("/");
+                    
+                    location.reload();
+                }
+            }, user);
         }
+        
     }
 }

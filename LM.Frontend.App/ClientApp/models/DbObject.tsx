@@ -7,15 +7,10 @@ function guid() {
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 }
 
-export enum DbObjectType {
-    User = 0, Part = 1, Theme = 2, Test = 3, Attainment = 4
-}
 export class DbObject {
     public id: string;
-    public type: DbObjectType;
     
-    public constructor(type: DbObjectType) {
+    constructor() {
         this.id = guid();
-        this.type = type;
     }
 }

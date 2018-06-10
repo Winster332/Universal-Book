@@ -8,14 +8,15 @@ namespace LM.Frontend.App.Controllers
 {
     public class MongoDbController<T> : Controller
     {
-        public TypeCollection Type { get; set; }
+        public TypeCollection Type { get; }
 
         public MongoDbController(TypeCollection type)
         {
             Type = type;
         }
         
-        [HttpPost("create")]
+        [ActionName("create")]
+        [HttpPost]
         public async Task<IActionResult> Create([FromBody]T document)
         {
             await Repository.Instance.Create(Type, document.ToBsonDocument());
@@ -23,7 +24,8 @@ namespace LM.Frontend.App.Controllers
             return Ok();
         }
         
-        [HttpPost("update")]
+        [ActionName("update")]
+        [HttpPost]
         public async Task<IActionResult> Update([FromBody]T document)
         {
             await Repository.Instance.Update(Type, document.ToBsonDocument());
@@ -39,7 +41,8 @@ namespace LM.Frontend.App.Controllers
             return Ok();
         }
         
-        [HttpGet("")]
+        [ActionName("")]
+        [HttpGet]
         public async Task<IActionResult> Get()
         {
             var result = await Repository.Instance.Get(Type);

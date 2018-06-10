@@ -22,6 +22,7 @@ namespace LM.Frontend.App
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
             services.AddMvc();
         }
 
@@ -49,6 +50,10 @@ namespace LM.Frontend.App
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
+                
+                routes.MapRoute(
+                    name: "DefaultApi",
+                    template: "api/{controller}/{id?}");
 
                 routes.MapSpaFallbackRoute(
                     name: "spa-fallback",

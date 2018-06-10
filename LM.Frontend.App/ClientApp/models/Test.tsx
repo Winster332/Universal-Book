@@ -1,7 +1,7 @@
-import {DbObject, DbObjectType} from "./DbObject";
+import {DbObject} from "./DbObject";
 
 export class Test extends DbObject {
     public constructor() {
-        super(DbObjectType.Test)
+        super()
     }
 }

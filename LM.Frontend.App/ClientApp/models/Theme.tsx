@@ -1,7 +1,7 @@
-import {DbObject, DbObjectType} from "./DbObject";
+import {DbObject} from "./DbObject";
 
 export class Theme extends DbObject {
     public constructor() {
-        super(DbObjectType.Theme);
+        super();
     }
 }
