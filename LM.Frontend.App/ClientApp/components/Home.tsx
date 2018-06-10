@@ -1,18 +1,35 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import {User} from "../models/User";
+import {Part} from "../models/Part";
+import {Api} from "../server/Api";
 
 interface BookState {
     user: User;
+    parts: Array<any>;
 }
 
 export class Home extends React.Component<RouteComponentProps<{}>, BookState> {
+    api: Api;
+    
     constructor() {
         super();
         
+        this.api = new Api();
+        
         this.state = {
-            user: this.getUserFromCookie()
-        }
+            user: this.getUserFromCookie(),
+            parts: []
+        };
+        
+        var app = this;
+        
+        this.api.parts.get(function (res: any) {
+            var parts = res.data;
+            app.setState({
+                parts: parts
+            })
+        });
     }
     
     public render() {
@@ -33,7 +50,7 @@ export class Home extends React.Component<RouteComponentProps<{}>, BookState> {
                         <p>Вы являетесь администратором и можете вносить изменения в структуру книги</p>
 
                         <p>
-                            <a className="btn btn-primary" role="button">
+                            <a onClick={() => this.addPart() } className="btn btn-primary" role="button">
                                 Добавить параграф
                             </a>
                         </p>
@@ -42,73 +59,65 @@ export class Home extends React.Component<RouteComponentProps<{}>, BookState> {
             }
 
             <div className="accordion" id="accordionExample">
-                <div className="card">
-                    <div className="card-header" id="headingTwo">
-                        <h5 className="mb-0">
-                            <button className="btn btn-link collapsed" type="button" data-toggle="collapse"
-                                    data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                Введение
-                            </button>
-                            |
-                            <button className="btn btn-link collapsed" type="button">
-                                Добавить тему
-                            </button>
-                            <button className="btn btn-link collapsed" type="button">
-                                Удалить
-                            </button>
-                        </h5>
-                    </div>
-                    <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo"
-                         data-parent="#accordionExample">
-                        <div className="card-body">
-                            <div className="list-group">
-                                <button type="button" className="list-group-item list-group-item-action">
-                                    Что такое математика
+                {
+                    this.state.parts.map(part =>
+                    <div className="card">
+                        <div className="card-header" id="headingThree">
+                            <h5 className="mb-0">
+                                <button className="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target={"#" + part.Name} aria-expanded="false" aria-controls={part.Name}>
+                                    {part.Name}
                                 </button>
-                                <button type="button" className="list-group-item list-group-item-action">
-                                    Целые числа
+                                |
+                                <button className="btn btn-link collapsed" type="button">
+                                    Добавить тему
                                 </button>
-                                <button type="button" className="list-group-item list-group-item-action">
-                                    Простые числа
+                                <button onClick={() => this.deletePart(part)} className="btn btn-link collapsed" type="button">
+                                    Удалить
                                 </button>
+                            </h5>
+                        </div>
+                        <div id={part.Name} className="collapse" aria-labelledby="headingThree"
+                             data-parent="#accordionExample">
+                            <div className="card-body">
+                                <div className="list-group">
+                                    <button type="button" className="list-group-item list-group-item-action">
+                                        Что такое математика
+                                    </button>
+                                    <button type="button" className="list-group-item list-group-item-action">
+                                        Целые числа
+                                    </button>
+                                    <button type="button" className="list-group-item list-group-item-action">
+                                        Простые числа
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="card">
-                    <div className="card-header" id="headingThree">
-                        <h5 className="mb-0">
-                            <button className="btn btn-link collapsed" type="button" data-toggle="collapse"
-                                    data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                Логарифмы
-                            </button>
-                        </h5>
-                    </div>
-                    <div id="collapseThree" className="collapse" aria-labelledby="headingThree"
-                         data-parent="#accordionExample">
-                        <div className="card-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
-                            squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
-                            nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
-                            single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
-                            beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice
-                            lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you
-                            probably haven't heard of them accusamus labore sustainable VHS.
-                        </div>
-                    </div>
-                </div>
+                    )}
             </div>
-            
-            
         </div>;
     }
     
     public addPart() {
-        
+        this.props.history.push("/newpart")
     }
     
     public addTheme() {
 
+    }
+    
+    public deletePart(part: any) {
+        var app = this;
+        
+        this.api.parts.remove(function (r: any) {
+            app.api.parts.get(function (res: any) {
+                var parts = res.data;
+                app.setState({
+                    parts: parts
+                })
+            });
+        }, part._id)
     }
     
     public getUserFromCookie() {
