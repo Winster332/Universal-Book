@@ -2,6 +2,7 @@ import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import {Role, User} from "../models/User";
 import {Api} from "../server/Api";
+import {Attainment} from "../models/Attainment";
 
 interface UserState {
     name: string,
@@ -112,6 +113,7 @@ export class Authorize extends React.Component<RouteComponentProps<{}>, UserStat
         user.name = this.state.name;
         user.password = this.state.password;
         user.role = Role.Student;
+        user.achievements = [];
         
         if (user.name.length < 5 || user.password.length < 5) {
             alert("Имя или пароль содержит меньше 5-ти знаков")
@@ -144,6 +146,8 @@ export class Authorize extends React.Component<RouteComponentProps<{}>, UserStat
                                 user.id = item._id;
                                 user.name = item.Name;
                                 user.password = item.Password;
+                                user.achievements = item.Attainment;
+                                console.log(user)
                                 
                                 document.cookie = "_user=" + JSON.stringify(user) + ";";
                                 app.props.history.push("/");

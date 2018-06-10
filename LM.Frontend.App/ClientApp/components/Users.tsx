@@ -66,7 +66,6 @@ export class Users extends React.Component<RouteComponentProps<{}>, UsersState> 
                                 <div className="card card-body">
                                     <p>Имя: {user.Name}</p>
                                     <p>Статус: { user.Role == 0 ? <a>студаент</a> : <a>Администратор</a> }</p>
-
                                     {
                                         this.user.role == 1 ?
                                         <button onClick={() => this.deleteUser(user)} className="btn btn-primary"
