@@ -29,6 +29,13 @@ export class ApiUser extends EndpointController {
             })
     }
     
+    public getUser(callback: Function, userId: string) {
+        axios.get(this.host + userId)
+            .then(function (response) {
+                callback(response);
+            })
+    }
+    
     public remove(callback: Function, userId: string) {
         axios.get(this.host + "remove/" + userId)
             .then(function (response) {

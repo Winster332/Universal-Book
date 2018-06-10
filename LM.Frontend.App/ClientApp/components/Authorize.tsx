@@ -128,14 +128,30 @@ export class Authorize extends React.Component<RouteComponentProps<{}>, UserStat
         } else {
             console.log("authorize");
             this.api.users.login(function (r: any) {
+                var currentUserId = r.data.id;
+                
                 if (r.statusText == "No Content") {
                     alert("Не удалось авторизоваться, проверьте пароль или логин")
                 } else {
-                    user = r.data;
-                    document.cookie = "_user=" + JSON.stringify(user) + ";";
-                    app.props.history.push("/");
-                    
-                    location.reload();
+                    app.api.users.get(function (res: any) {
+                        res.data.forEach((item: any) => {
+                            console.log(item._id + " == " + currentUserId)
+                            if (item._id.toString() == currentUserId.toString()) {
+                                console.log("item: ")
+                                console.log(item)
+                                user = new User();
+                                user.role = item.Role;
+                                user.id = item._id;
+                                user.name = item.Name;
+                                user.password = item.Password;
+                                
+                                document.cookie = "_user=" + JSON.stringify(user) + ";";
+                                app.props.history.push("/");
+
+                                location.reload();
+                            }
+                        })
+                    });
                 }
             }, user);
         }

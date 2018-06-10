@@ -51,7 +51,8 @@ namespace LM.Frontend.App.Controllers
             return Ok(result);
         }
         
-        [HttpGet("{id}")]
+        [ActionName("{id}")]
+        [HttpGet]
         public async Task<IActionResult> Get(Guid id)
         {
             var result = await Repository.Instance.Get(Type, id);
