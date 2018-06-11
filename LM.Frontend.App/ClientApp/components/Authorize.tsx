@@ -75,7 +75,7 @@ export class Authorize extends React.Component<RouteComponentProps<{}>, UserStat
                 <label htmlFor="exampleInputPassword1">Пароль</label>
                 <input onChange={e => this.inputChangePasswordHandle(e)} type="password" className="form-control" id="password" placeholder="Password"></input>
                 <br/>
-                <button onClick={ () => this.userAuthorize() } type="button" className="btn btn-primary">Войти</button>
+                <button onClick={ () => this.userAuthorize() } type="button" className="btn btn-primary">Далее</button>
             </div>
         </div>;
     }

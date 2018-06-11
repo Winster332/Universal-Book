@@ -64,7 +64,7 @@ export class NavMenu extends React.Component<{}, NavMenuState> {
                         <span className='icon-bar'></span>
                         <span className='icon-bar'></span>
                     </button>
-                    <Link className='navbar-brand' to={ '/' }>LM.Frontend.App</Link>
+                    <Link className='navbar-brand' to={ '/' }>Learn - Math</Link>
                 </div>
                 <div className='clearfix'></div>
                 <div className='navbar-collapse collapse'>

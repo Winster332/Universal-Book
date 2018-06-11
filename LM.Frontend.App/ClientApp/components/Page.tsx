@@ -55,38 +55,28 @@ export class Page extends React.Component<RouteComponentProps<{}>, PageState> {
             <p>
                 {this.state.theme.content}
             </p>
-            {/*<Iframe url="http://www.youtube.com/embed/xDMP3i36naA"*/}
-                    {/*width="450px"*/}
-                    {/*height="450px"*/}
-                    {/*id="myId"*/}
-                    {/*className="myClassname"*/}
-                    {/*display="initial"*/}
-                    {/*position="relative"*/}
-                    {/*allowFullScreen/>*/}
-
-
-            <p>
-                <a className="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button"
-                   aria-expanded="false" aria-controls="collapseExample">
-                    Задание
-                </a>
-            </p>
-            <div className="collapse" id="collapseExample">
-                <div className="card card-body">
-                    <p className="h4">Награда: "{this.state.theme.achievement}"</p>
-                    <p className="h3">Решите следующее:</p>
-                    <var>{this.state.theme.task}</var>
-                    <br/>
-                    <br/>
-                    <label htmlFor="exampleInputPassword1">Ваш ответ</label>
-                    <input onChange={e => this.inputChangeResultHandle(e)} className="form-control" type="text" id="username" placeholder="result"></input>
-                    <br/>
-                    <a onClick={() => this.setResult()} className="btn btn-primary" role="button">Ответить</a>
-                    <br/>
-                    <br/>
-                    <a className="btn btn-primary" role="button">Узнать решение</a>
-                </div>
-            </div>
+            {/*<p>*/}
+                {/*<a className="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button"*/}
+                   {/*aria-expanded="false" aria-controls="collapseExample">*/}
+                    {/*Задание*/}
+                {/*</a>*/}
+            {/*</p>*/}
+            {/*<div className="collapse" id="collapseExample">*/}
+                {/*<div className="card card-body">*/}
+                    {/*<p className="h4">Награда: "{this.state.theme.achievement}"</p>*/}
+                    {/*<p className="h3">Решите следующее:</p>*/}
+                    {/*<var>{this.state.theme.task}</var>*/}
+                    {/*<br/>*/}
+                    {/*<br/>*/}
+                    {/*<label htmlFor="exampleInputPassword1">Ваш ответ</label>*/}
+                    {/*<input onChange={e => this.inputChangeResultHandle(e)} className="form-control" type="text" id="username" placeholder="result"></input>*/}
+                    {/*<br/>*/}
+                    {/*<a onClick={() => this.setResult()} className="btn btn-primary" role="button">Ответить</a>*/}
+                    {/*<br/>*/}
+                    {/*<br/>*/}
+                    {/*<a className="btn btn-primary" role="button">Узнать решение</a>*/}
+                {/*</div>*/}
+            {/*</div>*/}
         </div>
     }
     

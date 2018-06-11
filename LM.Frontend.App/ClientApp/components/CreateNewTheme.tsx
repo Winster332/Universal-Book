@@ -59,24 +59,24 @@ export class CreateNewTheme extends React.Component<RouteComponentProps<{}>, Cre
             <br/>
             <div className="form-group">
                 <label htmlFor="comment">Контент:</label>
-                <textarea className="form-control" rows={22} id="comment" onChange={e => this.inputChangeContentHandle(e)}></textarea>
+                <textarea className="form-control" rows={28} id="comment" onChange={e => this.inputChangeContentHandle(e)}></textarea>
             </div>
             
-            <p>
-                <a className="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button"
-                   aria-expanded="false" aria-controls="collapseExample">
-                    Добавить проверочный тест
-                </a>
-            </p>
-            <div className="collapse" id="collapseExample">
-                <div className="card card-body">
-                    <label htmlFor="exampleInputPassword1">Награда за выполнение</label>
-                    <input onChange={e => this.inputChangeAchievementsHandle(e)} className="form-control" type="text" id="username" placeholder="achievements name"></input>
-                    <br/>
-                    <label htmlFor="exampleInputPassword1">Задание</label>
-                    <input onChange={e => this.inputChangeTaskHandle(e)} className="form-control" type="text" id="username" placeholder="task"></input>
-                </div>
-            </div>
+            {/*<p>*/}
+                {/*<a className="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button"*/}
+                   {/*aria-expanded="false" aria-controls="collapseExample">*/}
+                    {/*Добавить проверочный тест*/}
+                {/*</a>*/}
+            {/*</p>*/}
+            {/*<div className="collapse" id="collapseExample">*/}
+                {/*<div className="card card-body">*/}
+                    {/*<label htmlFor="exampleInputPassword1">Награда за выполнение</label>*/}
+                    {/*<input onChange={e => this.inputChangeAchievementsHandle(e)} className="form-control" type="text" id="username" placeholder="achievements name"></input>*/}
+                    {/*<br/>*/}
+                    {/*<label htmlFor="exampleInputPassword1">Задание</label>*/}
+                    {/*<input onChange={e => this.inputChangeTaskHandle(e)} className="form-control" type="text" id="username" placeholder="task"></input>*/}
+                {/*</div>*/}
+            {/*</div>*/}
             
             <hr/>
             
